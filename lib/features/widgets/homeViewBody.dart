@@ -1,3 +1,4 @@
+import 'package:bookly_app/features/widgets/BooksListView.dart';
 import 'package:bookly_app/features/widgets/customAppBar.dart';
 import 'package:bookly_app/features/widgets/customListViewItem.dart';
 import 'package:flutter/material.dart';
@@ -12,7 +13,7 @@ class HomeViewBody extends StatelessWidget {
         CustomAppBar(
           iconImage: Icon(Icons.search),
         ),
-        CustomListViewItem(),
+        BooksListView(),
       ],
     );
   }
