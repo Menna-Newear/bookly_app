@@ -29,7 +29,7 @@ class BestSellerListViewItem extends StatelessWidget {
             children: [
               Text(
                 "Book Title",
-                style: Styles.titleMedium,
+                style: Styles.titleMedium18,
               ),
               Text("Acthor Name"),
               Row(
