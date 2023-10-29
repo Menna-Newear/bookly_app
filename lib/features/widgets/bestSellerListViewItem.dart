@@ -1,5 +1,7 @@
+import 'package:bookly_app/constant.dart';
 import 'package:bookly_app/core/utilits/assets.dart';
 import 'package:bookly_app/core/utilits/styles.dart';
+import 'package:bookly_app/features/widgets/bookRating.dart';
 import 'package:flutter/material.dart';
 
 class BestSellerListViewItem extends StatelessWidget {
@@ -24,23 +26,51 @@ class BestSellerListViewItem extends StatelessWidget {
                   )),
             ),
           ),
-          const Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Text(
-                "Book Title",
-                style: Styles.titleMedium18,
-              ),
-              Text("Acthor Name"),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  Text("Price"),
-                  Text("Rating"),
-                  Text("Count Rating"),
-                ],
-              )
-            ],
+          const SizedBox(
+            height: 30,
+          ),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SizedBox(
+                  width: MediaQuery.of(context).size.width * 0.5,
+                  child: Text(
+                    "Harry Potter and the Goblet of Fire",
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                    style:
+                        Styles.teststyle20.copyWith(fontFamily: kGTSectraFine),
+                  ),
+                ),
+                const SizedBox(
+                  height: 3,
+                ),
+                const Text(
+                  "J.K. Rowling",
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                  style: Styles.teststyle14,
+                ),
+                const SizedBox(
+                  height: 3,
+                ),
+                Row(
+                  children: [
+                    Text(
+                      "19.99 €",
+                      style: Styles.teststyle20
+                          .copyWith(fontWeight: FontWeight.bold),
+                    ),
+                    const SizedBox(
+                      width: 30.3,
+                    ),
+                    Spacer(),
+                    BookRating(),
+                  ],
+                )
+              ],
+            ),
           )
         ],
       ),
