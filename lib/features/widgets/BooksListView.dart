@@ -1,4 +1,4 @@
-import 'package:bookly_app/features/widgets/customListViewItem.dart';
+import 'package:bookly_app/features/widgets/customBookImage.dart';
 import 'package:flutter/material.dart';
 
 class BooksListView extends StatelessWidget {
@@ -12,7 +12,7 @@ class BooksListView extends StatelessWidget {
           scrollDirection: Axis.horizontal,
           itemCount: 10,
           itemBuilder: (context, index) {
-            return const CustomListViewItem();
+            return const CustomBookImage();
           }),
     );
   }
