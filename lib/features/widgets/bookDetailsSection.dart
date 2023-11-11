@@ -2,7 +2,6 @@ import 'package:bookly_app/constant.dart';
 import 'package:bookly_app/core/utilits/styles.dart';
 import 'package:bookly_app/features/widgets/bookRating.dart';
 import 'package:bookly_app/features/widgets/booksAction.dart';
-import 'package:bookly_app/features/widgets/customBookDetailsAppBar.dart';
 import 'package:bookly_app/features/widgets/customBookImage.dart';
 import 'package:flutter/material.dart';
 

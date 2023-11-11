@@ -1,4 +1,3 @@
-import 'package:bookly_app/core/utilits/appRouter.dart';
 import 'package:bookly_app/core/utilits/assets.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
