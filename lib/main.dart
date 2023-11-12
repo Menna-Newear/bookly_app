@@ -1,11 +1,9 @@
 import 'package:bookly_app/constant.dart';
-import 'package:bookly_app/core/utilits/api_service.dart';
 import 'package:bookly_app/core/utilits/appRouter.dart';
 import 'package:bookly_app/core/utilits/serviceLocator.dart';
 import 'package:bookly_app/features/Home/data/repos/home_repo_impl.dart';
 import 'package:bookly_app/features/Home/persentation/manger/featuredBooksCubit/featured_books_cubit.dart';
 import 'package:bookly_app/features/Home/persentation/manger/newestBooksCubit/newest_books_cubit.dart';
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -23,10 +21,14 @@ class BooklyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (context) => NewestBooksCubit(getit.get<HomeRepoImpl>()),
+          create: (context) => NewestBooksCubit(
+            getit.get<HomeRepoImpl>(),
+          )..fetchNewestBooks(),
         ),
         BlocProvider(
-          create: (context) => FeaturedBooksCubit(getit.get<HomeRepoImpl>()),
+          create: (context) => FeaturedBooksCubit(
+            getit.get<HomeRepoImpl>(),
+          )..FetchFeatcherdBooks(),
         ),
       ],
       child: MaterialApp.router(
