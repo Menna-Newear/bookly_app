@@ -19,9 +19,10 @@ class RecoomendedBooksListView extends StatelessWidget {
                   scrollDirection: Axis.horizontal,
                   itemCount: state.books.length,
                   itemBuilder: (context, index) {
-                    return const CustomBookImage(
-                        imageURL:
-                            "https://foulabook.com/storage/photo/97883.2018-02-03.1517682381.png");
+                    return CustomBookImage(
+                        imageURL: state.books[index].volumeInfo.imageLinks
+                                ?.smallThumbnail ??
+                            "");
                   }));
         } else if (state is RelevanceBooksFailure) {
           return CustomErrWidget(errMessage: state.errMessage);

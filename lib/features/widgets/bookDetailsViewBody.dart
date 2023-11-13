@@ -1,5 +1,6 @@
 import 'package:bookly_app/constant.dart';
 import 'package:bookly_app/core/utilits/styles.dart';
+import 'package:bookly_app/features/Home/data/models/book_model/book_model.dart';
 import 'package:bookly_app/features/widgets/bookRating.dart';
 import 'package:bookly_app/features/widgets/booksAction.dart';
 import 'package:bookly_app/features/widgets/customBookDetailsAppBar.dart';
@@ -8,8 +9,8 @@ import 'package:bookly_app/features/widgets/recommendedBooksListView.dart';
 import 'package:flutter/material.dart';
 
 class BookDetailsViewBody extends StatelessWidget {
-  const BookDetailsViewBody({super.key});
-
+  const BookDetailsViewBody({super.key, required this.bookModel});
+  final BookModel bookModel;
   @override
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
@@ -24,12 +25,13 @@ class BookDetailsViewBody extends StatelessWidget {
                 const CustomBookDetailsAppBar(),
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: width * .2),
-                  child: const CustomBookImage(
+                  child: CustomBookImage(
                       imageURL:
-                          "https://foulabook.com/storage/photo/97883.2018-02-03.1517682381.png"),
+                          bookModel.volumeInfo.imageLinks?.smallThumbnail ??
+                              ""),
                 ),
                 Text(
-                  "The Jungle Book ",
+                  bookModel.volumeInfo.title,
                   style: Styles.teststyle30.copyWith(
                     fontFamily: kGTSectraFine,
                   ),
@@ -39,7 +41,7 @@ class BookDetailsViewBody extends StatelessWidget {
                 ),
                 Opacity(
                   opacity: 0.7,
-                  child: Text("Rudyard Kipling ",
+                  child: Text(bookModel.volumeInfo.authors![0],
                       style: Styles.titleMedium18.copyWith(
                         fontWeight: FontWeight.w500,
                         fontStyle: FontStyle.italic,
@@ -48,9 +50,9 @@ class BookDetailsViewBody extends StatelessWidget {
                 const SizedBox(
                   height: 16,
                 ),
-                const BookRating(
-                  count: 32,
-                  average: 2,
+                BookRating(
+                  count: bookModel.volumeInfo.ratingsCount ?? 0,
+                  average: bookModel.volumeInfo.averageRating ?? 0,
                   position: MainAxisAlignment.center,
                 ),
                 const SizedBox(
